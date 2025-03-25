@@ -11,8 +11,8 @@ Make sure you have the following installed:
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/PPL3-org/tracktion-fleet-management-system.git
-cd tracktion-fleet-management-system
+git clone https://github.com/PPL3-org/tracktion.git
+cd tracktion
 ```
 
 ### 2. Install Dependencies
