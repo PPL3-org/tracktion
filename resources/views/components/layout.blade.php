@@ -29,6 +29,7 @@
                 </x-nav-link>
             </nav>
         </div>
+        @auth
         <form action="/logout" method="POST" class="mt-auto">
             @csrf
             <button type="submit" class="group flex items-center gap-2 w-full bg-white text-sm font-sans text-red-600 p-2 rounded mt-4 hover:bg-red-600 hover:text-white transition">
@@ -38,6 +39,7 @@
                 Keluar
             </button>
         </form>
+        @endauth
     </aside>
     
     <!-- Main Content -->
