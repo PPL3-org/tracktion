@@ -20,6 +20,8 @@ class RegisteredUserController extends Controller
             'name' => ['required'],
             'email' => ['required', 'email'],
             'password' => ['required', 'confirmed', Password::min(6)]
+        ], [
+            'password.confirmed' => 'Konfirmasi kata sandi tidak sesuai'
         ]);
 
         $user =  User::create($attributes);

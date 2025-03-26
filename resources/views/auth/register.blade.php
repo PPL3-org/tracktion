@@ -15,6 +15,7 @@
             <x-form-field label="Email" name="email" type="email" placeholder="Masukan email anda" class="text-sm" />
             <x-form-field label="Password" name="password" type="password" placeholder="Masukan password anda" class="text-sm" />
             <x-form-field label="Konfirmasi Password" name="password_confirmation" type="password" placeholder="Masukan ulang password anda" class="text-sm" />
+            <x-form-error field="password"/>
 
             <div class="flex justify-end mb-3">
                 <a href="#" class="text-xs text-[#9747FF] font-semibold hover:underline">Lupa password?</a>

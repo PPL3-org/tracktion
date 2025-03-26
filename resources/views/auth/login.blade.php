@@ -3,7 +3,7 @@
         Login
     </x-slot:title>
     <div class="w-full max-w-sm">
-        <form action="/register" method="POST" class="bg-white shadow-md rounded px-6 pt-5 pb-6">
+        <form action="/login" method="POST" class="bg-white shadow-md rounded px-6 pt-5 pb-6">
             <h1 class="text-2xl text-[#170F49] text-center font-sans font-bold">
                 Selamat Datang!
             </h1>
@@ -16,6 +16,8 @@
             <div class="flex justify-end mb-3">
                 <a href="#" class="text-xs text-[#9747FF] font-semibold hover:underline">Lupa password?</a>
             </div>
+
+            <x-form-error field="credentials"/>
 
             <x-form-button value="LOG IN" class="text-sm"></x-form-button>
 
