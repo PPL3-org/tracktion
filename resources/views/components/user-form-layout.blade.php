@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
     @vite('resources/css/app.css')
+    <link rel="icon" href="{{ asset('favlogo.ico')}}" type="image/x-icon">
 </head>
 <body class="h-screen flex">
     <!-- Left Side: Image -->
