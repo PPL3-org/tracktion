@@ -8,6 +8,7 @@ Make sure you have the following installed:
 - [Node.js](https://nodejs.org/) & npm
 - [Composer](https://getcomposer.org/)
 - [Git](https://git-scm.com/)
+- PHP 8.4
 
 ### 1. Clone the Repository
 ```sh
@@ -31,7 +32,10 @@ Create a `.env` file in the root directory and configure your environment variab
 ```sh
 cp .env.example .env
 ```
-Then, update the `.env` file with your credentials and settings.
+Then, update the `.env` file with your credentials and settings and generate your application key
+```sh
+php artisan key:generate
+```
 
 ### 4. Run the Application
 Start the development server with:
@@ -39,7 +43,7 @@ Start the development server with:
 npm run dev
 ```
 
-Your application should now be running locally!
+Your application should now be running locally
 
 ---
 
