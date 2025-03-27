@@ -10,7 +10,7 @@
     </x-slot:name>
     <x-slot:page>
         <div>
-            <span class="text-2xl text-white font-sans font-semibold">Data Truk</span>
+            <span class="text-2xl text-white font-sans font-semibold">Data Pengemudi</span>
         </div>
 
         <div class="flex justify-around gap-3.5">

@@ -18,7 +18,13 @@
     <button {{ $attributes->merge(['class' => "group flex items-center gap-2 p-2 rounded-md text-sm font-sans font-medium $classes"]) }}>
 @endif
         <svg class="w-5 h-5 text-current group-hover:text-white" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        @if (is_array($iconPath))
+            @foreach ($iconPath as $path)
+                <path fill="currentColor" d="{{ $path }}"/>
+            @endforeach
+        @else
             <path fill="currentColor" d="{{ $iconPath }}"/>
+        @endif
         </svg>
         {{ $slot }}
 @if($tag === 'a')
