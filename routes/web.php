@@ -10,7 +10,7 @@ use App\Http\Controllers\VehicleCheckController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect('login');
+    return redirect('/login');
 });
 
 // Auth

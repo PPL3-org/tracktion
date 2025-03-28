@@ -23,5 +23,31 @@
             <x-button color="green" text="Cetak .xlsx"/>
         </div>
     </x-slot:page>
-    {{-- main content goes here --}}
+    <x-table 
+    :heads="['Nomor Plat', 'Waktu Keberangkatan', 'Muatan', 'Nomor Surat Jalan (pergi)', 'Nomor Surat Jalan (pulang)', 'klien', 'status']"
+    :widths="['w-32', 'w-40', 'w-28', 'w-48', 'w-52', 'w-32', 'w-24']">
+        @foreach ($shipments as $shipment)
+            <tr class="text-[#212121] bg-white text-xs font-sans hover:bg-gray-300 text-center">
+                <x-table-data href="shipments/{{ $shipment['id'] }}">{{ $loop->iteration }}</x-table-data>
+                <x-table-data href="shipments/{{ $shipment['id'] }}">{{ $shipment->truck->plate_number }}</x-table-data>
+                <x-table-data href="shipments/{{ $shipment['id'] }}">{{ $shipment->formatted_date }}</x-table-data>
+                <x-table-data href="shipments/{{ $shipment['id'] }}">{{ $shipment->load_type }}</x-table-data>
+                <x-table-data href="shipments/{{ $shipment['id'] }}">{{ $shipment->departure_waybill_number }}</x-table-data>
+                <x-table-data href="shipments/{{ $shipment['id'] }}">{{ $shipment->return_waybill_number }}</x-table-data>
+                <x-table-data href="shipments/{{ $shipment['id'] }}">{{ $shipment->client }}</x-table-data>
+                <x-table-data href="shipments/{{ $shipment['id'] }}">
+                    <span class="px-2 py-1 rounded-xl
+                        @php
+                            $status = $shipment->status;
+                            echo $status === 'dalam pengiriman' ? 'bg-[#FEF4EA] text-[#F08927]' : 'bg-[#E7EFED] text-[#065F46]'
+                        @endphp">
+                        {{ $status === 'dalam pengiriman' ? 'Perjalanan' : 'Selesai'}}
+                    </span>
+                </x-table-data>
+            </tr>
+            @endforeach    
+    </x-table>
+    <div class="my-4 px-4">
+        {{ $shipments->links() }}
+    </div>    
 </x-layout>
