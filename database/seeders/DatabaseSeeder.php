@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Driver;
+use App\Models\Shipment;
 use App\Models\Truck;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -24,5 +25,6 @@ class DatabaseSeeder extends Seeder
 
         Truck::factory()->create();
         Driver::factory(15)->create();
+        Shipment::factory(5)->create();
     }
 }
