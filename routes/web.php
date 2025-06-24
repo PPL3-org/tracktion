@@ -8,6 +8,11 @@ use App\Http\Controllers\ShipmentController;
 use App\Http\Controllers\TruckController;
 use App\Http\Controllers\VehicleCheckController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Truck;
+use App\Models\Driver;
+use App\Models\Shipment;
+use App\Models\VehicleCheck;
+use App\Models\Report;
 
 Route::get('/', function () {
     return redirect('/login');
@@ -17,7 +22,7 @@ Route::get('/', function () {
 Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
-Route::get('/login', [SessionController::class, 'create']);
+Route::get('/login', [SessionController::class, 'create'])->name('login');
 Route::post('/login', [SessionController::class, 'store']);
 Route::post('/logout', [SessionController::class, 'destroy']);
 
@@ -36,6 +41,15 @@ Route::get('/inspections', [VehicleCheckController::class, 'index']);
 // Report
 Route::get('/reports', [ReportController::class, 'index']);
 
+Route::middleware(['auth'])->get('/dashboard', function () {
+    return view('dashboard', [
+        'truckCount' => \App\Models\Truck::count(),
+        'driverCount' => \App\Models\Driver::count(),
+        'shipmentCount' => \App\Models\Shipment::count(),
+        'inspectionCount' => \App\Models\VehicleCheck::count(),
+        'reportCount' => \App\Models\Report::count(),
+    ]);
+});
 // Verb          Path                        Action  Route Name
 // GET           /users                      index   users.index
 // GET           /users/create               create  users.create
